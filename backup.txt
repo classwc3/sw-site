@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="조성우의 개인 포트폴리오입니다.">
+    <meta name="naver-site-verification" content="041cc6e1af75b7f6cf9e6042668ffa549c8d2c9b" />
+
+    <meta property="og:type" content="website"> 
+    <meta property="og:title" content="조성우 - 포트폴리오">
+    <meta property="og:description" content="중일초 6학년 보라반 조성우입니다.">
+    <meta property="og:image" content="https://i.ibb.co/JRtCHj1n/prof.png">
+    <meta property="og:url" content="조성우.kro.kr">
+    
+    <title>조성우 - 포트폴리오</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .gov-gradient {
+            background: linear-gradient(135deg, #0052A4 0%, #003d7a 100%);
+        }
+        
+        .gov-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gov-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark .gov-card {
+            background: #1f2937;
+            border-color: #374151;
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #0052A4;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        .fade-in {
+            opacity: 1;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .dark {
+            background-color: #111827;
+            color: #f9fafb;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #0052A4;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0052A4;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .timeline-line {
+            position: relative;
+        }
+        
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        
+        .dark .timeline-line::before {
+            background: #374151;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #0052A4;
+            border: 3px solid white;
+        }
+        
+        .dark .timeline-dot {
+            border-color: #111827;
+        }
+        
+        .dday-badge {
+            background: linear-gradient(135deg, #0052A4, #003d7a);
+        }
+        
+        .celebration-card {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .dday-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .dday-item:nth-child(1) { animation-delay: 0s; }
+        .dday-item:nth-child(2) { animation-delay: 0.1s; }
+        .dday-item:nth-child(3) { animation-delay: 0.2s; }
+        .dday-item:nth-child(4) { animation-delay: 0.3s; }
+
+        .timeline-item:nth-child(1) { animation-delay: 0s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 transition-colors duration-300">
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-900 dark:text-blue-400">
+                조성우
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 transition">홈</a>
+                <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 transition">소개</a>
+                <a href="#dday" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 transition">디데이</a>
+                <a href="#timeline" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 transition">이력</a>
+                <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400 transition">연락처</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <i class="fas fa-moon text-xl text-gray-700 dark:text-gray-300"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <section id="home" class="min-h-screen flex items-center justify-center gov-gradient relative overflow-hidden pt-20">
+        <div class="container mx-auto px-4 text-center text-white z-10">
+            <div class="mb-8">
+                <div class="w-40 h-40 mx-auto rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-blue-300 to-blue-500 flex items-center justify-center">
+                    <!-- <i class="fas fa-user text-white text-6xl"></i> -->
+                    <img src="https://xn--oj4bo4hmqb.kro.kr/profile (2).png" alt="prof" border="0"></a>
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">조성우</h1>
+            <p class="text-xl md:text-2xl mb-4">중일초등학교 6학년</p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <span class="px-5 py-2 bg-white/20 backdrop-blur-sm rounded-lg">
+                    <i class="fas fa-map-marker-alt mr-2"></i>대한민국 경기도 용인시
+                </span>
+                <span class="px-5 py-2 bg-white/20 backdrop-blur-sm rounded-lg">
+                    <i class="fas fa-birthday-cake mr-2"></i><span id="ageDisplay">12</span>세
+                </span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold section-title">자기소개</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="gov-card rounded-lg p-6 fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-heart text-3xl text-red-500 mr-3"></i>
+                        <h3 class="text-xl font-bold">취미</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">프로그래밍, 독서, 수영</p>
+                </div>
+                <div class="gov-card rounded-lg p-6 fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-star text-3xl text-yellow-500 mr-3"></i>
+                        <h3 class="text-xl font-bold">특기</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">Python, Unity</p>
+                </div>
+                <div class="gov-card rounded-lg p-6 fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-school text-3xl text-blue-500 mr-3"></i>
+                        <h3 class="text-xl font-bold">학교</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">중일초등학교 6학년</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="dday" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold section-title">디데이</h2>
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto" id="ddayContainer">
+            </div>
+        </div>
+    </section>
+    
+    <section id="timeline" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold section-title">이력</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-line pl-12 space-y-6" id="timelineContainer">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold section-title">연락처</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <a href="mailto:sungwoo@sungwoocho.kro.kr" 
+                   class="gov-card rounded-lg p-5 flex items-center space-x-4 hover:shadow-lg transition fade-in">
+                    <i class="fas fa-envelope text-3xl text-red-500"></i>
+                    <div>
+                        <div class="font-bold">메일</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">sungwoo@sungwoocho.kro.kr</div>
+                    </div>
+                </a>
+                <a href="tel:010-89**-****" 
+                   class="gov-card rounded-lg p-5 flex items-center space-x-4 hover:shadow-lg transition fade-in">
+                    <i class="fas fa-phone text-3xl text-green-500"></i>
+                    <div>
+                        <div class="font-bold">전화</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">010-89**-****</div>
+                    </div>
+                </a>
+                <!-- <a href="https://open.kakao.com/o/example" target="_blank"
+                   class="gov-card rounded-lg p-5 flex items-center space-x-4 hover:shadow-lg transition fade-in">
+                    <i class="fas fa-comment text-3xl text-yellow-500"></i>
+                    <div>
+                        <div class="font-bold">카카오톡</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">오픈채팅</div>
+                    </div>
+                </a> -->
+                <a href="https://github.com/classwc3" target="_blank"
+                   class="gov-card rounded-lg p-5 flex items-center space-x-4 hover:shadow-lg transition fade-in">
+                    <i class="fab fa-github text-3xl text-gray-800 dark:text-white"></i>
+                    <div>
+                        <div class="font-bold">GitHub</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">프로젝트</div>
+                    </div>
+                </a>
+                <a href="https://discord.gg/f8Mv8wz6" target="_blank"
+                   class="gov-card rounded-lg p-5 flex items-center space-x-4 hover:shadow-lg transition fade-in">
+                    <i class="fab fa-discord text-3xl text-indigo-500"></i>
+                    <div>
+                        <div class="font-bold">Discord</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">@classwc3</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="py-8 bg-gray-900 text-white text-center">
+        <p class="text-sm">© 2025 조성우. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // 다크모드
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        if (localStorage.getItem('darkMode') === 'true') {
+            html.classList.add('dark');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        });
+        
+        // 스크롤 프로그레스
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+        
+        // 나이 계산
+        function calculateAge(birthDate) {
+            const today = new Date();
+            const birth = new Date(birthDate);
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                age--;
+            }
+            return age;
+        }
+        
+        // D-DAY 계산
+        function calculateDday(targetDate) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const target = new Date(targetDate);
+            target.setHours(0, 0, 0, 0);
+            const diff = Math.floor((target - today) / (1000 * 60 * 60 * 24));
+            
+            if (diff === 0) return { text: 'D-DAY!!!', isToday: true };
+            if (diff < 0) return { text: `D+${Math.abs(diff)}`, isToday: false };
+            return { text: `D-${diff}`, isToday: false };
+        }
+        
+        // 데이터
+        const ddayData = [
+            { title: '파이썬', target_date: '2025-02-18', description: '파이썬 시작' },
+            { title: '유니티', target_date: '2025-10-18', description: '유니티 시작' },
+            { title: '태어난지', target_date: '2013-03-13', description: '태어난지' },
+            { title: '생일', target_date: '2026-03-13', description: '13살 되는날' }
+        ];
+        
+        const timelineData = [
+            { year: '2013.03', event: '출생' },
+            { year: '2020.09', event: 'Sindlinger Wiesen 초등학교 입학' },
+            { year: '2022.03', event: '운양초등학교 전학' },
+            { year: '2022.06', event: '중일초등학교 전학' },
+            { year: '2025.02', event: '파이썬 시작' },
+            { year: '2025.10', event: '유니티 시작' },
+            { year: '2025.12', event: '중일초등학교 졸업 (예정)' }
+        ];
+        
+        // D-DAY 렌더링
+        const ddayContainer = document.getElementById('ddayContainer');
+        ddayData.forEach((item, idx) => {
+            const dday = calculateDday(item.target_date);
+            const celebration = dday.isToday ? 'celebration-card' : '';
+            const ddayHtml = `
+                <div class="gov-card rounded-lg p-6 text-center dday-item ${celebration}">
+                    <div class="dday-badge text-white rounded-lg p-4 mb-4">
+                        <div class="text-4xl font-bold mb-1">${dday.text}</div>
+                        <div class="text-sm opacity-90">${item.target_date}</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">${item.title}</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">${item.description}</p>
+                </div>
+            `;
+            ddayContainer.innerHTML += ddayHtml;
+        });
+        
+        // 타임라인 렌더링
+        const timelineContainer = document.getElementById('timelineContainer');
+        timelineData.forEach((item, idx) => {
+            const timelineHtml = `
+                <div class="relative timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="gov-card rounded-lg p-5">
+                        <div class="font-bold text-blue-900 dark:text-blue-400 mb-1">${item.year}</div>
+                        <div class="text-gray-700 dark:text-gray-300">${item.event}</div>
+                    </div>
+                </div>
+            `;
+            timelineContainer.innerHTML += timelineHtml;
+        });
+        
+        // 나이 표시
+        document.getElementById('ageDisplay').textContent = calculateAge('2013-03-13');
+    </script>
+</body>
+</html>
